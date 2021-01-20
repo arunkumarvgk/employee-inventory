@@ -36,12 +36,12 @@ The above one runs the project with default property values, we can override the
 ```shell
 mvn spring-boot:run -Dspring-boot.run.arguments="--file.upload.logAfterRecordsCount=10 --file.upload.delay=500"
 ```
-You can access the application http://localhost:8080
+You can access the application `http://localhost:8080`
 
 ## APIs  
 
 ### 1. Upload file 
-  ###### Post request http://localhost:8080/api/employee/upload  
+  ###### Post request `http://localhost:8080/api/employee/upload`  
   Choose form-data, Key will be **file** and value will be upload file 
   
   ### Note: Data in the file should be [name] [space] [age] next record should be in next line (Sample file available in src/main/resources)
@@ -52,7 +52,7 @@ Response will be the Task ID to check the status
 
 
 ### 2. Verify status 
-###### Get Request http://localhost:8080/api/employee/status/1  
+###### Get Request `http://localhost:8080/api/employee/status/1`  
 Returns the current status as shown below
 
 ![image](https://user-images.githubusercontent.com/30832427/105221948-cfc99180-5b7f-11eb-8480-ff94a4c8e3ab.png)
@@ -60,16 +60,16 @@ Returns the current status as shown below
 ### 3. CRUD Operations on employee
 
 #### Returns all the employees
-###### Get Request http://localhost:8080/api/employee/all
+###### Get Request `http://localhost:8080/api/employee/all`
 
 #### Find By ID
-###### Get Request http://localhost:8080/api/employee/2
+###### Get Request `http://localhost:8080/api/employee/2`
 
 #### Find By Name
-###### Get Request http://localhost:8080/api/employee/Sachin
+###### Get Request `http://localhost:8080/api/employee/Sachin`
 
 #### Create new Employee (Returns employee id)
-###### Post Request http://localhost:8080/api/employee
+###### Post Request `http://localhost:8080/api/employee`
 Request Body 
 ```javascript
 {
@@ -79,7 +79,7 @@ Request Body
 ```
 
 #### Update existing Employee
-###### Put Request http://localhost:8080/api/employee
+###### Put Request `http://localhost:8080/api/employee`
 Request Body 
 ```javascript
 {
@@ -90,10 +90,10 @@ Request Body
 ```
 
 #### Delete Employee
-###### Delete Request http://localhost:8080/api/employee/201  
+###### Delete Request `http://localhost:8080/api/employee/201`  
 
 
-### Data can also be seen in H2 Database console http://localhost:8080/h2-console/ login details available in application.properties file 
+### Data can also be seen in H2 Database console `http://localhost:8080/h2-console/` login details available in application.properties file 
 
 
   
