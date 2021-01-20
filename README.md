@@ -38,9 +38,24 @@ mvn spring-boot:run -Dspring-boot.run.arguments="--file.upload.logAfterRecordsCo
 ```
 You can access the application http://localhost:8080
 
-### APIs
+## APIs  
 
-**1.** Upload file
-  ###### Post request http://localhost:8080/api/employee/upload
+### 1. Upload file 
+  ###### Post request http://localhost:8080/api/employee/upload  
+  Choose form-data, Key will be **file** and value will be upload file
+![image](https://user-images.githubusercontent.com/30832427/105221115-ab20ea00-5b7e-11eb-93d4-23b7971f6c78.png)    
+
+
+Response will be the Task ID to check the status
+
+
+### 2. Verify status 
+###### Get Request http://localhost:8080/api/employee/status/1  
+
+
+![image](https://user-images.githubusercontent.com/30832427/105221948-cfc99180-5b7f-11eb-8480-ff94a4c8e3ab.png)
+
+
+
   
   
