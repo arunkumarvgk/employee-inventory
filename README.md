@@ -26,10 +26,15 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 ```shell
 mvn spring-boot:run
 ```
+## Docker Run
 
-The above one runs the project with default property values, we can override them using the below one:
+After `mvn clean install` once the jar is created we can build docker image using  
+Build docker image `docker build -t employee-inven:1.0.0 .` (inside project folder)
+Run docker image `docker container run -p 8080:8080 --network mynetwork --name employee-inven employee-inven:1.0.0`  application will be available in `localhost:8080`
 
-#### Few properties useful while testing  
+
+
+## Few properties useful while testing  
 **file.upload.logAfterRecordsCount = 10**  Updates the log after every 10 records inserted to database  
 **file.upload.delay = 500**  Delay in milliseconds between insert operation   
 
