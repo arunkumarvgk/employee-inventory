@@ -10,7 +10,7 @@ import com.empinventory.model.Employee;
 
 @Service
 public interface EmployeeService {
-	void loadData(InputStream inputStreamm, int taskId) throws IOException, InterruptedException;
+	int uploadFile(InputStream inputStreamm) throws IOException, InterruptedException;
 
 	int create(String name, int age);
 

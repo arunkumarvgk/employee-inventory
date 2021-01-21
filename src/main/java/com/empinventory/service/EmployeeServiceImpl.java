@@ -34,13 +34,33 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private int logAfterRecordsCount;
 
 	/**
+	 * Uploads file to data asynchronously.
+	 * 
+	 * @param inputStream The uploaded file input stream.
+	 */
+	@Override
+	public int uploadFile(@NonNull final InputStream inputStreamm) throws IOException, InterruptedException {
+		final int taskID = taskService.createTask();
+		final Runnable runnable = () -> {
+			try {
+				loadData(inputStreamm, taskID);
+			} catch (InterruptedException | IOException e) {
+				final String message = "Failed to load data " + e.getMessage();
+				taskService.updateTask(taskID, message);
+			}
+		};
+
+		new Thread(runnable).start();
+		return taskID;
+	}
+
+	/**
 	 * Loads the data from file to to database and also updates the task accordingly.
 	 * 
 	 * @param inputStream The uploaded file input stream.
 	 * @param taskId The task id created for this process.
 	 */
-	@Override
-	public void loadData(@NonNull final InputStream inputStream, @NonNull final int taskId) throws IOException, InterruptedException {
+	private void loadData(@NonNull final InputStream inputStream, @NonNull final int taskId) throws IOException, InterruptedException {
 		int count = 0;
 		
 		/* Update the task before starting */

@@ -39,18 +39,12 @@ public class FlatFileUploadControllerImpl implements FlatFileUploadController {
 	@PostMapping("upload")
 	@Override
 	public ResponseEntity<String> uploadFile(@RequestParam("file") final MultipartFile file) {
-
-		final int taskID = taskService.createTask();
-		final Runnable runnable = () -> {
-			try {
-				employeeService.loadData(file.getInputStream(), taskID);
-			} catch (InterruptedException | IOException e) {
-				final String message = "Failed to load data " + e.getMessage();
-				taskService.updateTask(taskID, message);
-			}
-		};
-
-		new Thread(runnable).start();
+		int taskID;
+		try {
+			taskID = employeeService.uploadFile(file.getInputStream());
+		} catch (IOException | InterruptedException e) {
+			return new ResponseEntity<String>("Failed" + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		return new ResponseEntity<String>("TaskID for your Reference => " + taskID, HttpStatus.OK);
 	}
 
