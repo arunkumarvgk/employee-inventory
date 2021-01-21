@@ -1,0 +1,27 @@
+
+Answered after reading the concepts.
+
+Default GateWay in IP?
+
+A default gateway allows the devices in one network to communicate with devices in another network. To be able to communicate with other IP networks a router must be used.
+Default Gateway can connect to more than one IP network and can route traffic between those IP networks.
+The router will have its own IP address on each IP network that it connects to.
+
+SNAT and DNAT
+
+SNAT is Source Network Address Translation. SNAT changes the source address of the packets passing through the Router, is typically used when an internal
+host needs to initiate a session to an external host.
+
+DNAT is Destination Network Address Translation. DNATchanges the destination address of packets passing through the Router. DNAT is typically used when an 
+external host needs to initiate a session with an internal host.
+
+ARP ?
+
+Address Resolution Protocol(ARP) is a protocol that is used to resolve the IP Addresses to MAC Addresses(Physical Address of the device).
+Let us say that computer A  wants to communicate with Computer B, Computer A already knows the IP Address of computer B but it still needs the MAC Address of computer B,
+Now computer A will internally look into the ARP cache to see if computer B's IP Address has a matching MAC Address if it is not available then computer A 
+sends a broad message to check which computer has Computer B's MAC Address, once Computer A receives Computer B's MAC Address it starts communicating.
+
+There are 2 different types of ARP entries
+Dynamic: Created automatically when a device sends outs broadcast message to the network.
+Static: Someone manually enters the IP-MAC mapping.
